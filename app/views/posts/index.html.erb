@@ -1,0 +1,17 @@
+<h1>Post feed</h1>
+<br><br>
+<%= link_to "Create post", new_post_path %>
+<br><br>
+<ul class='post-feed'>
+	<% @posts.each do |post| %>
+		<li>
+			<% if logged_in? %>
+				<%= post.user.name %><br>
+			<% else %>
+				Username hidden.<br>
+			<% end %>
+			<%= post.content %><br>
+			Posted <%= time_ago_in_words(post.created_at) %> ago.
+			</li>
+	<% end %>
+</ul>

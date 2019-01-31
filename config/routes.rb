@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'posts/new'
+
+  get 'posts/index'
+
   root 'static_pages#home'
 
   get '/about', to: 'static_pages#about'
@@ -12,5 +16,7 @@ Rails.application.routes.draw do
   get '/signup', to: 'users#new'
 
   resources :users
+
+  resources :posts, only: [:new, :create, :index]
 
 end

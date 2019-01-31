@@ -2,6 +2,10 @@
 	<div class='container'>
 		<h1>Rails Security Sample</h1>
 		<p><%= link_to "(What is this?)", about_path %></p>
-		<p><%= link_to "Login", login_path, class: 'btn btn-lg btn-primary' %> or <%= link_to "Sign up", signup_path, class: 'btn btn-lg btn-primary' %></p>
+		<% if !logged_in? %>
+			<p><%= link_to "Login", login_path, class: 'btn btn-lg btn-primary' %> or <%= link_to "Sign up", signup_path, class: 'btn btn-lg btn-primary' %></p>
+		<% else %>
+			<p><%= link_to "Create post", new_post_path, class: 'btn btn-lg btn-primary' %> or <%= link_to "View posts", posts_path, class: 'btn btn-lg btn-primary' %></p>
+		<% end %>
 	</div>
 </div>

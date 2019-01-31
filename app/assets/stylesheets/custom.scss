@@ -13,3 +13,45 @@ input, textarea {
 	width: 100%;
 	margin-bottom: 10px;
 }
+
+.checkbox {
+	span {
+		margin-left: 20px;
+	}
+}
+
+#session_remember {
+	width: auto;
+	margin-left: 0px;
+}
+
+#logo {
+	font-weight: bold;
+	font-size: 24px;
+	text-decoration: none;
+	float: left;
+	margin-top: 8px;
+	color: #fff;
+	a:hover {
+		color: #fff;
+	}
+}
+
+.nav {
+	margin-right: 10px;
+	a {
+		color: #fff !important;
+		&:hover {
+		 color: #9c9fa3 !important;
+		}
+	}
+}
+
+.post-feed {
+	list-style-type: none;
+	margin: 0px 0px 50px 0px;
+	padding-left: 0px;
+	li {
+	margin-bottom: 15px;
+	}
+}
