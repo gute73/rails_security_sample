@@ -5,13 +5,15 @@
 <ul class='post-feed'>
 	<% @posts.each do |post| %>
 		<li>
-			<% if logged_in? %>
-				<%= post.user.name %><br>
-			<% else %>
-				Username hidden.<br>
-			<% end %>
-			<%= post.content %><br>
-			Posted <%= time_ago_in_words(post.created_at) %> ago.
+			<span id='post-name'>
+				<% if logged_in? %>
+					<%= post.user.name %><br>
+				<% else %>
+					User's name hidden.<br>
+				<% end %>
+			</span>
+			<span id='post-content'><%= post.content %></span><br>
+			<span id='post-ago'>Posted <%= time_ago_in_words(post.created_at) %> ago.</span>
 			</li>
 	<% end %>
 </ul>
