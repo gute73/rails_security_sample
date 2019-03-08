@@ -1,6 +1,6 @@
 <h1><%= @user.name %></h1>
 
-<% if current_user?(@posts.user) %>
+<% if current_user?(@user) %>
 	<%= link_to "Create post", new_post_path %>
 	<br><br>
 <% end %>
