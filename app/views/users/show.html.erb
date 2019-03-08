@@ -1,7 +1,9 @@
 <h1><%= @user.name %></h1>
 
-<%= link_to "Create post", new_post_path %>
-<br><br>
+<% if current_user?(@posts.user) %>
+	<%= link_to "Create post", new_post_path %>
+	<br><br>
+<% end %>
 <ul class='post-feed'>
 	<% if @posts.any? %>
 		<% @posts.each do |post| %>
