@@ -1,13 +1,15 @@
 <h1>Post feed</h1>
 <br><br>
-<%= link_to "Create post", new_post_path %>
+<% if logged_in? %>
+	<%= link_to "Create post", new_post_path %>
+<% end %>
 <br><br>
 <ul class='post-feed'>
 	<% @posts.each do |post| %>
 		<li>
 			<span id='post-name'>
 				<% if logged_in? %>
-					<%= post.user.name %><br>
+					<%= link_to post.user.name, user_path(post.user) %><br>
 				<% else %>
 					User's name hidden.<br>
 				<% end %>

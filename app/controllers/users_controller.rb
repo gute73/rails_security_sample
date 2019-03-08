@@ -1,7 +1,9 @@
 class UsersController < ApplicationController
+  before_action :check_logged_in, only: [:show]
 
 	def show
 		@user = User.find_by(id: params[:id])
+    @posts = @user.posts.all
 	end
 
   def new
@@ -21,6 +23,13 @@ class UsersController < ApplicationController
   end
 
   private
+
+    def check_logged_in
+      if !logged_in?
+        flash[:danger] = "Please log in to view user feed."
+        redirect_to login_url
+      end
+    end
 
   	def user_params
   		params.require(:user).permit(:name, :email, :password, :password_confirmation)

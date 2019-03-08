@@ -1,1 +1,16 @@
 <h1><%= @user.name %></h1>
+
+<%= link_to "Create post", new_post_path %>
+<br><br>
+<ul class='post-feed'>
+	<% if @posts.any? %>
+		<% @posts.each do |post| %>
+			<li>
+				<span id='post-content'><%= post.content %></span><br>
+				<span id='post-ago'>Posted <%= time_ago_in_words(post.created_at) %> ago.</span>
+			</li>
+		<% end %>
+	<% else %>
+		<p>No posts!</p>
+	<% end %>
+</ul>
